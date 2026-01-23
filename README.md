@@ -13,9 +13,8 @@ Industrial3D is the first (to our knowledge) large-scale, high-resolution point 
 
 ### 🏗️ Dataset Statistics
 
-- **Total Scanned Area**: ~20,000 m² across 13+ large-scale rooms
-- **Raw Points**: 2.3+ billion 3D points with over 610 expertly labeled points
-- **Labeled Points**: 610+ million expertly annotated points
+- **Total Scanned Area**: ~20,000 m²
+- **Labeled Points**: 2.3+ billion 3D points with over 610 expertly labeled points
 - **Point Density**: 6mm TLS resolution at 10-meter range
 - **Annotation Effort**: 754 person-hours by 5 domain experts
 - **Facilities**: 13+ representative water treatment facilities
