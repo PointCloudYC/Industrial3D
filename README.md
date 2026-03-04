@@ -1,4 +1,4 @@
-# Industrial3D: A Large-Scale Industrial MEP Point Cloud Dataset
+# Industrial3D: A Large-Scale Dataset and Benchmark for Industrial Point Cloud Segmentation
 
 **The largest publicly available industrial MEP point cloud dataset for complex scene understanding**
 
@@ -135,9 +135,9 @@ Industrial3D is a large-scale, high-resolution point cloud dataset specifically 
 
 ```bibtex
 @article{industrial3d2026,
-  title={Industrial3D: A Large-Scale Industrial MEP Point Cloud Dataset},
+  title={Industrial3D: A Large-Scale Dataset and Benchmark for Industrial Point Cloud Segmentation},
   author={Yin, Chao and others},
-  journal={TO BE DETERMINED},
+  url={https://github.com/PointCloudYC/Industrial3D}
   year={2025}
 }
 ```
@@ -148,7 +148,7 @@ TBD upon dataset release.
 
 ## Contact
 
-For questions and inquiries, please open an issue in this repository or contact me via email (cyinac@connect.ust.hk or chaoyin@ust.hk).
+For questions and inquiries, please open an issue in this repository or contact me via email (cyinac@connect.ust.hk).
 
 ---
 
