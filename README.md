@@ -125,7 +125,7 @@ Industrial3D is a large-scale, high-resolution point cloud dataset specifically 
 
 @article{yin2026boundarycb,
   title={Resolving Primitive-Sharing Ambiguity in Long-Tailed Industrial Point Cloud Segmentation via Spatial Context Constraints},
-  author={Yin Chao, Han Qing, Hou Zhiwei, Liu Yue, Dai Anjin, Hu Hongda, Yang Ji, and Yao Wei},
+  author={Yin, Chao and Han, Qing and Hou, Zhiwei and Liu, Yue and Dai, Anjin and Hu, Hongda and Yang, Ji and Yao, Wei},
   journal={arXiv preprint arXiv:2601.19128},
   year={2026}
 }
