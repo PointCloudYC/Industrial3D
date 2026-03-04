@@ -56,7 +56,7 @@ Industrial3D is a large-scale, high-resolution point cloud dataset specifically 
 
 | Method | mIoU |
 |--------|------|
-| ResPointNet++ (boundary-CB) | **54.05%** |
+| ResPointNet++ (boundary-CB) | **55.74%** |
 | ResPointNet++ | **54.05%** |
 | KPConv | 53.65% |
 | PosPool | 53.18% |
