@@ -1,17 +1,23 @@
-# Industrial3D: A Large-Scale Industrial MEP Point Cloud Dataset
+# Industrial3D
 
-**⚠️ Note:** This repository is currently under active development. The full dataset and benchmark code will be released upon paper acceptance. **Stay tuned!**
+**📄 Paper:** [Industrial3D: A Terrestrial LiDAR Point Cloud Dataset and Cross-Paradigm Benchmark for Industrial Infrastructure](https://arxiv.org/abs/2603.28660) (**Under Review**)
 
-## 📊 Overview
+**⚠️ Under active development.** Dataset and code will be released upon paper acceptance.
 
-Industrial3D is the first (to our knowledge) large-scale, high-resolution point cloud dataset specifically designed for industrial Mechanical, Electrical, and Plumbing (MEP) scene understanding. It addresses critical gaps in existing 3D datasets by providing:
+## Overview
 
-- **Scale**: Over 610 million expertly labeled points across 13+ large-scale water treatment facilities
-- **Resolution**: 6mm terrestrial laser scanning (TLS) for fine-grained component capture
-- **Diversity**: 12 specialized MEP and structural classes
-- **Authenticity**: Real-world industrial environments with realistic occlusion, noise, and complexity
+Industrial3D is a large-scale, high-resolution point cloud dataset for industrial Mechanical, Electrical, and Plumbing (MEP) scene understanding. Furthermore, we benchmark 9 representative methods on the Industrial3D across 4 DL paradigms (fully supervised, weakly supervised, unsupervised, and foundation model). 
 
-## 🖼️ Dataset Preview
+- **Scale:** 612.7 million labeled points from 7 water treatment facilities
+- **Resolution:** 6mm terrestrial laser scanning (TLS)
+- **Diversity:** 12 semantic classes (MEP + structural elements)
+- **Authenticity:** Real industrial environments with realistic occlusion, noise, and complexity
+
+## Figures
+
+![Graphical Abstract](figures/graphical_abstract_v6.png)
+
+*Figure: Industrial3D graphical abstract showing dataset overview and benchmark framework.*
 
 ![Facility Overview](figures/overview.png)
 
@@ -19,67 +25,78 @@ Industrial3D is the first (to our knowledge) large-scale, high-resolution point 
 
 ![Semantic Classes](figures/Industrial3D_example_points.png)
 
-*Figure: All 12 semantic classes in Industrial3D: Pipe, Cable Tray, Duct, Valve, Instrument, Support, Equipment, Handrail/Grating, Beam, Column, Wall, Floor.*
+*Figure: All 12 semantic classes (Synthetic point clouds) in Industrial3D: Pipe, Cable Tray, Duct, Valve, Instrument, Support, Equipment, Handrail/Grating, Beam, Column, Wall, Floor.*
 
-### 🏗️ Dataset Statistics
-
-- **Total Scanned Area**: ~20,000 m²
-- **Labeled Points**: 2.3+ billion 3D points with over 610 expertly labeled points
-- **Point Density**: 6mm TLS resolution at 10-meter range
-- **Annotation Effort**: 754 person-hours by 5 domain experts
-- **Facilities**: 13 areas from 7 water treatment facilities
-- **Rooms**: 20 unique rooms/scenes across 13 areas
-
-## 📏 Dataset Scale
-
-![Class Distribution](figures/class_distribution_tiers.pdf)
+![Class Distribution](figures/class_distribution_tiers.png)
 
 *Figure: Statistical distribution of 612.7M labeled points across 3 tiers. Industrial3D has a **215:1 class imbalance** (head:tail), 3.5× more severe than S3DIS.*
 
-## 🏭 Dataset Diversity
+![Scene Gallery](figures/scene_gallery_v1.png)
 
-![Scene Gallery](figures/scene_gallery_v1.pdf)
+![Additional Scenes](figures/scene_gallery_more_v1.png)
 
-*Additional Scenes:* [scene_gallery_more_v1.pdf](figures/scene_gallery_more_v1.pdf)
+## Dataset Statistics
 
-## 📈 Benchmark
+| Metric              | Value                      |
+|---------------------|----------------------------|
+| Total Scanned Area  | 20,000+ m² (estimated)                 |
+| Labeled Points      | 612.7 million              |
+| Raw Scan Data       | 2.3+ billion points        |
+| Point Density       | 6mm TLS resolution         |
+| Annotation Effort   | 754 person-hours           |
+| Facilities          | 13 type of water treatment facilities   |
+| Areas               | 13 areas                   |
+| Rooms               | 20 unique rooms/scenes     |
+
+## Benchmark
 
 ### Methods Evaluated
 
-**Fully-Supervised Methods:**
+**Fully-Supervised:**
 - ResPointNet++
 - KPConv
 - PosPool
 - ResPointNet++ with Class-Balanced (CB) loss
 
-**Weakly-Supervised Methods:**
-- SQN
-- CPCM
+**Weakly-Supervised:**
+- SQN (0.1% labels)
 
-**Unsupervised Methods:**
+**Self-Supervised:**
 - GrowSP (3-stage pipeline: Superpoints, Primitives, Merged Primitives)
 
 **Foundation Models:**
-- Point-SAM
+- Point-SAM (zero-shot)
 
-## 🎥 Scene Videos
+### Key Results
 
-**20 unique rooms** across 13 areas. 4 representative scenes shown below. All videos available on [Google Drive](https://drive.google.com/drive/folders/PLACEHOLDER).
+| Paradigm          | Method                     | mIoU   |
+|-------------------|----------------------------|--------|
+| Fully-Supervised  | ResPointNet++ w. CB        | 54.05% |
+| Fully-Supervised  | KPConv                     | 53.65% |
+| Weakly-Supervised | SQN (0.1% labels)          | 44.29% |
+| Self-Supervised   | GrowSP                     | 11.73% |
+| Foundation Model  | Point-SAM (zero-shot)      | 35.2%  |
+| Foundation Model  | Point-SAM (10% few-shot)   | 74.5%  |
 
-| # | Area | Room | Split | Video |
-|---|------|------|-------|-------|
-| 1 | Area 2 | Service Gallery | Train | [Watch Video](https://drive.google.com/file/d/PLACEHOLDER) |
-| 2 | Area 12 | SPH Pump Room | Test | [Watch Video](https://drive.google.com/file/d/PLACEHOLDER) |
-| 3 | Area 6-1 | 93m Psu | Test | [Watch Video](https://drive.google.com/file/d/PLACEHOLDER) |
-| 4 | Area 3 | 93m Tank | Train | [Watch Video](https://drive.google.com/file/d/PLACEHOLDER) |
+## Scene Videos
 
-**Rationale for 4 representatives:**
-- Service Gallery: Largest (79.6M points), highest MEP density
-- SPH Pump Room: Test set representative, compact equipment
-- 93m Psu: Test set, moderate complexity
-- 93m Tank: Large tank structure, geometric diversity
+**20 unique rooms** across 13 areas. 4 representative scenes:
 
-**All 20 rooms** available on [Google Drive](https://drive.google.com/drive/folders/PLACEHOLDER) with detailed metadata.
+| # | Area     | Room            | Split | Video          |
+|---|----------|-----------------|-------|----------------|
+| 1 | Area 2   | Service Gallery | Train | [Watch ▶](videos/Area_2_service_gallery_gt.mp4) |
+| 2 | Area 12  | SPH Pump Room   | Test  | [Watch ▶](videos/Area_12_SPHRoom_1_gt.mp4) |
+| 3 | Area 6-1 | 93m Psu         | Test  | [Watch ▶](videos/Area_6_OGB_93m_PSu_Rm_Rella_Choy_gt.mp4) |
+| 4 | Area 3   | 93m Tank        | Train | [Watch ▶](videos/Area_3_OGB_93m_Tank_Area_no.1_Lowie_Man_gt.mp4) |
+
+**Why these 4:**
+
+- Service Gallery: Largest at 79.6M points with highest MEP density
+- SPH Pump Room: Test set representative with compact equipment
+- 93m Psu: Test set with moderate complexity
+- 93m Tank: Large tank structure showing geometric diversity
+
+**📁 Full dataset coming soon!** All 20 rooms (RGB + ground truth videos and renders) will be uploaded to Google Drive with the same structure as `tex/industrial3d_rooms/` and `tex/industrial3d_videos/`. **Stay tuned for the complete collection!**
 
 ## 📚 Citation
 
@@ -95,7 +112,3 @@ Industrial3D is the first (to our knowledge) large-scale, high-resolution point 
   year={2026}
 }
 ```
-
-**Links:**
-- arXiv: https://arxiv.org/abs/2603.28660
-- ISPRS Journal: Submitted (under review)
