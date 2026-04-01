@@ -76,7 +76,7 @@ Industrial3D is a large-scale, high-resolution point cloud dataset for industria
 - 93m Psu: Test set with moderate complexity
 - 93m Tank: Large tank structure showing geometric diversity
 
-**📁 Full dataset coming soon!** All 20 rooms (RGB + ground truth videos and renders) will be uploaded to Google Drive. **Stay tuned for the complete collection!**
+**📁 Full dataset coming soon!** All 20 rooms (RGB + ground truth videos and renders) will be uploaded to [Google Drive](https://drive.google.com/drive/folders/1T6viLM-SKrDZBCaoKghgld2pIyRq6XLZ?usp=sharing). **Stay tuned for the complete collection!**
 
 ## Dataset Statistics
 
