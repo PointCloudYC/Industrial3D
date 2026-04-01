@@ -27,13 +27,56 @@ Industrial3D is a large-scale, high-resolution point cloud dataset for industria
 
 *Figure: All 12 semantic classes (Synthetic point clouds) in Industrial3D: Pipe, Cable Tray, Duct, Valve, Instrument, Support, Equipment, Handrail/Grating, Beam, Column, Wall, Floor.*
 
+![Scene Gallery](figures/scene_gallery_v1.png)
+
+*Figure: Scene gallery of 4 representative scenes in Industrial3D.*
+
+![Additional Scenes](figures/scene_gallery_more_v1.png)
+
+*Figure: Additional scenes in Industrial3D.*
+
 ![Class Distribution](figures/class_distribution_tiers.png)
 
 *Figure: Statistical distribution of 612.7M labeled points across 3 tiers. Industrial3D has a **215:1 class imbalance** (head:tail), 3.5× more severe than S3DIS.*
 
-![Scene Gallery](figures/scene_gallery_v1.png)
 
-![Additional Scenes](figures/scene_gallery_more_v1.png)
+## Scene Videos
+
+**20 unique rooms** across 13 areas. 4 representative scenes:
+
+| # | Area     | Room            | Split | Video          |
+|---|----------|-----------------|-------|----------------|
+| 1 | Area 2   | Service Gallery | Train | [Watch ▶](videos/Area_2_service_gallery_gt.mp4) |
+| 2 | Area 12  | SPH Pump Room   | Test  | [Watch ▶](videos/Area_12_SPHRoom_1_gt.mp4) |
+| 3 | Area 6-1 | 93m Psu         | Test  | [Watch ▶](videos/Area_6_OGB_93m_PSu_Rm_Rella_Choy_gt.mp4) |
+| 4 | Area 3   | 93m Tank        | Train | [Watch ▶](videos/Area_3_OGB_93m_Tank_Area_no.1_Lowie_Man_gt.mp4) |
+
+### Scene Previews
+
+![Service Gallery](videos/Area_2_service_gallery_gt.gif)
+
+*Area 2: Service Gallery (Train) - Largest at 79.6M points with highest MEP density*
+
+![SPH Pump Room](videos/Area_12_SPHRoom_1_gt.gif)
+
+*Area 12: SPH Pump Room (Test) - Test set representative with compact equipment*
+
+![93m Psu](videos/Area_6_OGB_93m_PSu_Rm_Rella_Choy_gt.gif)
+
+*Area 6-1: 93m Psu (Test) - Test set with moderate complexity*
+
+![93m Tank](videos/Area_3_OGB_93m_Tank_Area_no.1_Lowie_Man_gt.gif)
+
+*Area 3: 93m Tank (Train) - Large tank structure showing geometric diversity*
+
+**Why these 4:**
+
+- Service Gallery: Largest at 79.6M points with highest MEP density
+- SPH Pump Room: Test set representative with compact equipment
+- 93m Psu: Test set with moderate complexity
+- 93m Tank: Large tank structure showing geometric diversity
+
+**📁 Full dataset coming soon!** All 20 rooms (RGB + ground truth videos and renders) will be uploaded to Google Drive. **Stay tuned for the complete collection!**
 
 ## Dataset Statistics
 
@@ -78,31 +121,7 @@ Industrial3D is a large-scale, high-resolution point cloud dataset for industria
 | Foundation Model  | Point-SAM (zero-shot)      | 35.2%  |
 | Foundation Model  | Point-SAM (10% few-shot)   | 74.5%  |
 
-## Scene Videos
-
-**20 unique rooms** across 13 areas. 4 representative scenes:
-
-| # | Area     | Room            | Split | Video          |
-|---|----------|-----------------|-------|----------------|
-| 1 | Area 2   | Service Gallery | Train | [Watch ▶](videos/Area_2_service_gallery_gt.mp4) |
-| 2 | Area 12  | SPH Pump Room   | Test  | [Watch ▶](videos/Area_12_SPHRoom_1_gt.mp4) |
-| 3 | Area 6-1 | 93m Psu         | Test  | [Watch ▶](videos/Area_6_OGB_93m_PSu_Rm_Rella_Choy_gt.mp4) |
-| 4 | Area 3   | 93m Tank        | Train | [Watch ▶](videos/Area_3_OGB_93m_Tank_Area_no.1_Lowie_Man_gt.mp4) |
-
-**Why these 4:**
-
-- Service Gallery: Largest at 79.6M points with highest MEP density
-- SPH Pump Room: Test set representative with compact equipment
-- 93m Psu: Test set with moderate complexity
-- 93m Tank: Large tank structure showing geometric diversity
-
-**📁 Full dataset coming soon!** All 20 rooms (RGB + ground truth videos and renders) will be uploaded to Google Drive with the same structure as `tex/industrial3d_rooms/` and `tex/industrial3d_videos/`. **Stay tuned for the complete collection!**
-
 ## 📚 Citation
-
-**Paper:** [Industrial3D: A Terrestrial LiDAR Point Cloud Dataset and Cross-Paradigm Benchmark for Industrial Infrastructure](https://arxiv.org/abs/2603.28660)
-
-**BibTeX:**
 
 ```bibtex
 @article{yin2026industrial3d,
