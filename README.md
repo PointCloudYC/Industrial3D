@@ -119,7 +119,6 @@ Industrial3D is a large-scale, high-resolution point cloud dataset for industria
 | Weakly-Supervised | SQN (0.1% labels)          | 44.29% |
 | Self-Supervised   | GrowSP                     | 11.73% |
 | Foundation Model  | Point-SAM (zero-shot)      | 35.2%  |
-| Foundation Model  | Point-SAM (10% few-shot)   | 74.5%  |
 
 ## 📚 Citation
 
