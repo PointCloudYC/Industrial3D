@@ -2,7 +2,7 @@
 
 **📄 Paper:** [Industrial3D: A Terrestrial LiDAR Point Cloud Dataset and Cross-Paradigm Benchmark for Industrial Infrastructure](https://arxiv.org/abs/2603.28660) (**Under Review**)
 
-**⚠️ Under active development.** Dataset and code will be released upon paper acceptance.
+**⚠️ Dataset Status:** Under review. Full dataset and code will be released upon journal paper acceptance. Preview materials (videos, figures) available below.
 
 ## Overview
 
@@ -25,7 +25,7 @@ Industrial3D is a large-scale, high-resolution point cloud dataset for industria
 
 ![Semantic Classes](figures/Industrial3D_example_points.png)
 
-*Figure: All 12 semantic classes (Synthetic point clouds) in Industrial3D: Pipe, Cable Tray, Duct, Valve, Instrument, Support, Equipment, Handrail/Grating, Beam, Column, Wall, Floor.*
+*Figure: All 12 semantic classes in Industrial3D: Duct, Elbow, Flange, I-beam, Pipe, Pump, Reducer, Rectangular beam, Strainer, Tank, Tee, Valve.*
 
 ![Scene Gallery](figures/scene_gallery_v1.png)
 
@@ -48,8 +48,8 @@ Industrial3D is a large-scale, high-resolution point cloud dataset for industria
 |---|----------|-----------------|-------|----------------|
 | 1 | Area 2   | Service Gallery | Train | [Watch ▶](videos/Area_2_service_gallery_gt.mp4) |
 | 2 | Area 12  | SPH Pump Room   | Test  | [Watch ▶](videos/Area_12_SPHRoom_1_gt.mp4) |
-| 3 | Area 6-1 | 93m Psu         | Test  | [Watch ▶](videos/Area_6_OGB_93m_PSu_Rm_Rella_Choy_gt.mp4) |
-| 4 | Area 3   | 93m Tank        | Train | [Watch ▶](videos/Area_3_OGB_93m_Tank_Area_no.1_Lowie_Man_gt.mp4) |
+| 3 | Area 6-1 | 93m Psu         | Test  | [Watch ▶](videos/Area_6_OGB_93m_Psu_Rm_gt.mp4) |
+| 4 | Area 3   | 93m Tank        | Train | [Watch ▶](videos/Area_3_OGB_93m_Tank_Area_1_gt.mp4) |
 
 ### Scene Previews
 
@@ -61,11 +61,11 @@ Industrial3D is a large-scale, high-resolution point cloud dataset for industria
 
 *Area 12: SPH Pump Room (Test) - Test set representative with compact equipment*
 
-![93m Psu](videos/Area_6_OGB_93m_PSu_Rm_Rella_Choy_gt.gif)
+![93m Psu](videos/Area_6_OGB_93m_Psu_Rm_gt.gif)
 
 *Area 6-1: 93m Psu (Test) - Test set with moderate complexity*
 
-![93m Tank](videos/Area_3_OGB_93m_Tank_Area_no.1_Lowie_Man_gt.gif)
+![93m Tank](videos/Area_3_OGB_93m_Tank_Area_1_gt.gif)
 
 *Area 3: 93m Tank (Train) - Large tank structure showing geometric diversity*
 
@@ -76,7 +76,7 @@ Industrial3D is a large-scale, high-resolution point cloud dataset for industria
 - 93m Psu: Test set with moderate complexity
 - 93m Tank: Large tank structure showing geometric diversity
 
-**📁 Full dataset coming soon!** All 20 rooms (RGB + ground truth videos and renders) will be uploaded to [Google Drive](https://drive.google.com/drive/folders/1T6viLM-SKrDZBCaoKghgld2pIyRq6XLZ?usp=sharing). **Stay tuned for the complete collection!**
+**📁 Full dataset coming soon!** All 20 rooms (RGB + ground truth videos and renders) will be uploaded to [Google Drive](https://drive.google.com/drive/folders/1T6viLM-SKrDZBCaoKghgld2pIyRq6XLZ?usp=sharing) upon paper acceptance. **Current preview materials available** (videos, renders). **Stay tuned for the complete collection!**
 
 ## Dataset Statistics
 
@@ -95,30 +95,38 @@ Industrial3D is a large-scale, high-resolution point cloud dataset for industria
 
 ### Methods Evaluated
 
-**Fully-Supervised:**
-- ResPointNet++
+**Fully-Supervised (6 methods):**
 - KPConv
 - PosPool
-- ResPointNet++ with Class-Balanced (CB) loss
+- RandLA-Net
+- ResPointNet++
+- PTv3 (Point Transformer V3)
+- Boundary-CB
 
-**Weakly-Supervised:**
-- SQN (0.1% labels)
+**Weakly-Supervised (1 method):**
+- SQN (0.1% labels, 0.01% labels)
 
-**Self-Supervised:**
-- GrowSP (3-stage pipeline: Superpoints, Primitives, Merged Primitives)
+**Unsupervised (1 method):**
+- GrowSP
 
-**Foundation Models:**
-- Point-SAM (zero-shot)
+**Foundation Models (1 method):**
+- Point-SAM (Oracle, One-vs-Rest)
 
 ### Key Results
 
 | Paradigm          | Method                     | mIoU   |
 |-------------------|----------------------------|--------|
-| Fully-Supervised  | ResPointNet++ w. CB        | 54.05% |
+| Fully-Supervised  | Boundary-CB                | 55.74% |
 | Fully-Supervised  | KPConv                     | 53.65% |
+| Fully-Supervised  | PosPool                    | 53.18% |
+| Fully-Supervised  | ResPointNet++              | 52.48% |
+| Fully-Supervised  | PTv3                       | 41.90% |
+| Fully-Supervised  | RandLA-Net                 | 39.83% |
 | Weakly-Supervised | SQN (0.1% labels)          | 44.29% |
-| Self-Supervised   | GrowSP                     | 11.73% |
-| Foundation Model  | Point-SAM (zero-shot)      | 35.2%  |
+| Weakly-Supervised | SQN (0.01% labels)         | 33.16% |
+| Unsupervised      | GrowSP                     | 11.73% |
+| Foundation Model  | Point-SAM (Oracle)         | 21.08% |
+| Foundation Model  | Point-SAM (One-vs-Rest)    | 15.79% |
 
 ## 📚 Citation
 
@@ -127,6 +135,40 @@ Industrial3D is a large-scale, high-resolution point cloud dataset for industria
   title={Industrial3D: A Terrestrial LiDAR Point Cloud Dataset and Cross-Paradigm Benchmark for Industrial Infrastructure},
   author={Yin, Chao and Yue, Hongzhe and Han, Qing and Hu, Difeng and Liang, Zhenyu and Lin, Fangzhou and Sun, Bing and Wang, Boyu and Li, Mingkai and Yao, Wei and Cheng, Jack C.P.},
   journal={arXiv preprint arXiv:2603.28660},
+  year={2026}
+}
+```
+
+### Related Work
+
+```bibtex
+@article{yin2021,
+  title={Automated semantic segmentation of industrial point clouds using ResPointNet++},
+  author={Yin, Chao and Wang, Boyu and Gan, Vincent JL and Wang, Mi and Cheng, Jack CP},
+  journal={Automation in Construction},
+  volume={130},
+  pages={103874},
+  year={2021},
+  publisher={Elsevier},
+  doi={10.1016/j.autcon.2021.103874}
+}
+
+@article{yin2023,
+  title={Label-efficient semantic segmentation of large-scale industrial point clouds using weakly supervised learning},
+  author={Yin, Chao and Yang, Bo and Cheng, Jack CP and Gan, Vincent JL and Wang, Boyu and Yang, Ji},
+  journal={Automation in Construction},
+  volume={148},
+  pages={104757},
+  year={2023},
+  issn = {0926-5805},
+  doi={10.1016/j.autcon.2023.104757},
+}
+
+@article{Yin2026arXiv,
+  title={Resolving Primitive-Sharing Ambiguity in Long-Tailed Industrial Point Cloud Segmentation via Spatial Context Constraints},
+  author={Yin, Chao and Han, Qing and Hou, Zhiwei and Liu, Yue and Dai, Anjin and Hu, Hongda and Yang, Ji and Yao, Wei},
+  journal={arXiv preprint arXiv:2601.19128},
+  eprint={2601.19128},
   year={2026}
 }
 ```
