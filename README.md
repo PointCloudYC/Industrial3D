@@ -1,5 +1,5 @@
 # Industrial3D
-
+**Website:** [Industrial3D] (https://pointcloudyc.github.io/industrial3d/index.html)
 **📄 Paper:** [Industrial3D: A Terrestrial LiDAR Point Cloud Dataset and Cross-Paradigm Benchmark for Industrial Infrastructure](https://arxiv.org/abs/2603.28660) (**Under Review**)
 
 **⚠️ Dataset Status:** Under review. Full dataset and code will be released upon journal paper acceptance. Preview materials (videos, figures) available below.
